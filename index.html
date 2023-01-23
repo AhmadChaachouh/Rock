@@ -4,32 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="rock.js"></script>
+    <title>RPS</title>
+    <script src="rock.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="Rock">Rock</button>
-    <button class="Paper">Paper</button>
-    <button class="Scissors">Scissors</button>
-    <div class="result"></div>
-    <div class="score">
-        player :<span class="ps"></span>, comp : <span class="cs"></span>  </div>
-    <div class="final"></div>
-    <script>
-        const rock = document.querySelector('.Rock');
-        const paper = document.querySelector('.Paper');
-        const scissors = document.querySelector('.Scissors');
-        const result = document.querySelector('.result');
-        const playerscore = document.querySelector('.ps');
-        const compscore = document.querySelector('.cs');
-        const fin = document.querySelector('.final');
-
-        
-
-        rock.addEventListener('click', function(e) {play(getComputerChoice(), "Rock")});
-        paper.addEventListener('click', function(e) {play(getComputerChoice(), "Paper")});
-        scissors.addEventListener('click', function(e) {play(getComputerChoice(), "Scissors")});
-
-    </script>
+    <div class="contaier"></div>   
 </body>
 </html>

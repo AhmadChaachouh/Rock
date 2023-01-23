@@ -1,3 +1,42 @@
+const container = document.querySelector('.contaier');
+
+const buttons = document.createElement('div');
+buttons.classList.add('buttons');
+
+const rock = document.createElement('button');
+rock.classList.add('rock');
+rock.textContent = "Rock";
+buttons.appendChild(rock);
+
+const paper = document.createElement('button');
+paper.classList.add('paper');
+paper.textContent = "Paper";
+buttons.appendChild(paper);
+
+const scissors = document.createElement('button');
+scissors.classList.add('scissors');
+scissors.textContent = "Scisssors";
+buttons.appendChild(scissors);
+
+container.appendChild(buttons);
+
+const Buttons = document.querySelectorAll('button');
+
+rock.addEventListener('click', function(e){play(getComputerChoice(), e.target.textContent);})
+paper.addEventListener('click', function(e){play(getComputerChoice(), e.target.textContent);})
+scissors.addEventListener('click', function(e){play(getComputerChoice(), e.target.textContent);})
+
+const result = document.createElement('div');
+container.appendChild(result);
+
+const scores = document.createElement('div');
+container.appendChild(scores);
+
+const fin = document.createElement('div');
+container.appendChild(fin);
+
+
+
 let computerScore = 0;
 let playerScore = 0;
 
@@ -6,12 +45,7 @@ function getComputerChoice(){
     return x;
 }
 
-function playerSelection(){
-    let selection = prompt("choose:");
-    return selection;
-}
-
-function play(comp,player){
+function play(comp, player){
 
      if (playerScore == 5 || computerScore == 5) {
         fin.textContent = `final score : player : ${playerScore}, computer : ${computerScore}.`
@@ -29,41 +63,19 @@ function play(comp,player){
         y = 2;
     }
 
-
     if (y == comp){
-        result.textContent = "draw";
-    }
+        result.textContent = `You chose ${player}, computer chose ${comp}, it's a draw!`;
+        scores.textContent = `Player ${playerScore}, Computer : ${computerScore} .`;    
+    }   
     else if (y > comp && Math.abs(y-comp) < 2){
-        result.textContent = "win";
+        result.textContent = `You chose ${player}, computer chose ${comp}, You win!`;
         playerScore++; 
-        playerscore.textContent = playerScore; 
+        scores.textContent = `Player ${playerScore}, Computer : ${computerScore} .`;
      }
     else if (comp > y && Math.abs(comp-y) < 2){
-        result.textContent = "lose";
+        result.textContent = `You chose ${player}, computer chose ${comp}, You lose!`;
         computerScore++;
-        compscore.textContent = computerScore;
+        scores.textContent = `Player ${playerScore}, Computer : ${computerScore} .`;
     }
+
 }
-// function game(){
-//     let result = 0, p = 0, c = 0;
-//     for(i = 0; i < 5; i++){
-//         comp = getComputerChoice();
-//         player = playerSelection();
-//         result = play(comp, player);
-//         if(result == 2){
-//             p++;
-//         }else if(result == -2){
-//             c++;
-//         }
-//         console.log(`palyer : ${p}, comp : ${c}`);  
-//     }
-//     if(p > c){
-//         console.log("CONgrats! Yoiu win!");
-//     }else if (p == c){
-//         console.log("It's a draw...");
-//     }else{
-//         console.log("OOps! Computer wins");
-//     }
-// }
-
-
